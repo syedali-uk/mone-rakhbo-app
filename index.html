@@ -10,17 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1A7F7A;
-            --primary-light: #2A9D97;
-            --primary-dark: #156662;
-            --secondary: #C4694D;
-            --secondary-light: #D4836A;
-            --accent: #E07A3B;
-            --background: #FEFCF9;
-            --background-alt: #F5F0EA;
-            --text: #3D2C29;
-            --text-light: #6B5B57;
+            --primary: #9B2948;
+            --primary-light: #B83D5E;
+            --primary-dark: #7A1F38;
+            --secondary: #D4A84B;
+            --secondary-light: #E4BC6A;
+            --accent: #2D5A3D;
+            --background: #FAF8F5;
+            --background-alt: #F3EDE5;
+            --text: #1A1A1A;
+            --text-light: #5A5A5A;
             --white: #FFFFFF;
+            --cream: #FDF9F3;
         }
 
         * {
@@ -37,6 +38,33 @@
             line-height: 1.6;
         }
 
+        /* Nakshi Kantha inspired stitch pattern */
+        .kantha-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+            background-image:
+                repeating-linear-gradient(
+                    45deg,
+                    var(--primary) 0px,
+                    var(--primary) 2px,
+                    transparent 2px,
+                    transparent 12px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    var(--secondary) 0px,
+                    var(--secondary) 2px,
+                    transparent 2px,
+                    transparent 12px
+                );
+        }
+
         /* Header */
         .header {
             background: var(--primary);
@@ -46,7 +74,7 @@
             left: 0;
             right: 0;
             z-index: 100;
-            box-shadow: 0 2px 8px rgba(26, 127, 122, 0.2);
+            border-bottom: 3px solid var(--secondary);
         }
 
         .header-content {
@@ -60,20 +88,24 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
             color: var(--white);
             text-decoration: none;
         }
 
+        /* Shapla (Water Lily) inspired logo */
         .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--secondary);
-            border-radius: 8px;
+            width: 36px;
+            height: 36px;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
         }
 
         .logo-text {
@@ -84,7 +116,7 @@
 
         .logo-bengali {
             font-weight: 400;
-            color: var(--accent);
+            color: var(--secondary);
             margin-left: 0.25rem;
         }
 
@@ -99,15 +131,35 @@
             overflow: hidden;
         }
 
+        /* Alpona inspired top border pattern */
         .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 60%;
-            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
-            clip-path: ellipse(150% 100% at 50% 0%);
+            height: 55%;
+            background: var(--primary);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+        }
+
+        /* Decorative alpona border */
+        .alpona-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--secondary) 0px,
+                var(--secondary) 20px,
+                var(--primary-dark) 20px,
+                var(--primary-dark) 24px,
+                var(--secondary) 24px,
+                var(--secondary) 44px
+            );
+            z-index: 101;
         }
 
         .hero-content {
@@ -121,64 +173,91 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
+            background: var(--secondary);
+            color: var(--text);
+            padding: 0.5rem 1.25rem;
+            border-radius: 4px;
             font-size: 0.875rem;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        .hero-badge-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-            animation: pulse-dot 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-dot {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.2); }
+        .hero-badge::before,
+        .hero-badge::after {
+            content: '✦';
+            font-size: 0.7rem;
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-size: clamp(2.25rem, 7vw, 3.5rem);
             font-weight: 700;
             color: var(--white);
-            margin-bottom: 0.5rem;
-            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
         }
 
         .hero-title-bengali {
-            color: var(--accent);
+            display: block;
+            font-size: 0.55em;
             font-weight: 500;
+            color: var(--secondary);
+            margin-top: 0.5rem;
+            letter-spacing: 2px;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 2rem;
             font-weight: 400;
         }
 
-        /* Card */
+        /* Card with traditional border */
         .hero-card {
             background: var(--white);
-            border-radius: 16px;
+            border-radius: 4px;
             padding: 2rem;
-            box-shadow: 0 20px 60px rgba(26, 127, 122, 0.15);
+            box-shadow: 0 25px 80px rgba(155, 41, 72, 0.2);
             text-align: left;
+            position: relative;
+            border: 2px solid var(--background-alt);
+        }
+
+        /* Decorative corner motifs */
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            height: 4px;
+            background: linear-gradient(90deg,
+                var(--secondary) 0%,
+                var(--primary) 25%,
+                var(--accent) 50%,
+                var(--primary) 75%,
+                var(--secondary) 100%
+            );
         }
 
         .hero-card h2 {
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--text);
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-card h2::before {
+            content: '';
+            width: 4px;
+            height: 1.25rem;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
         .features-list {
@@ -190,8 +269,8 @@
             display: flex;
             align-items: flex-start;
             gap: 0.75rem;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--background-alt);
+            padding: 0.875rem 0;
+            border-bottom: 1px dashed var(--background-alt);
         }
 
         .features-list li:last-child {
@@ -199,15 +278,16 @@
         }
 
         .feature-icon {
-            width: 24px;
-            height: 24px;
-            background: var(--background-alt);
-            border-radius: 6px;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
+            box-shadow: 0 2px 8px rgba(155, 41, 72, 0.2);
         }
 
         .feature-text {
@@ -232,37 +312,53 @@
             min-width: 200px;
             padding: 0.875rem 1rem;
             border: 2px solid var(--background-alt);
-            border-radius: 10px;
+            border-radius: 4px;
             font-family: inherit;
             font-size: 1rem;
             transition: border-color 0.2s, box-shadow 0.2s;
+            background: var(--cream);
         }
 
         .notify-input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(26, 127, 122, 0.1);
+            box-shadow: 0 0 0 3px rgba(155, 41, 72, 0.1);
+            background: var(--white);
         }
 
         .notify-button {
-            padding: 0.875rem 1.5rem;
-            background: var(--primary);
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: var(--white);
             border: none;
-            border-radius: 10px;
+            border-radius: 4px;
             font-family: inherit;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
+            transition: transform 0.1s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(155, 41, 72, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .notify-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 100%);
         }
 
         .notify-button:hover {
-            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(155, 41, 72, 0.4);
         }
 
         .notify-button:active {
-            transform: scale(0.98);
+            transform: translateY(0);
         }
 
         .form-note {
@@ -271,57 +367,67 @@
             margin-top: 0.75rem;
         }
 
-        /* Decorative Elements */
-        .decoration {
+        /* Shapla decorations */
+        .shapla {
             position: absolute;
             pointer-events: none;
+            opacity: 0.15;
         }
 
-        .decoration-1 {
-            top: 15%;
+        .shapla svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .shapla-1 {
+            top: 12%;
+            left: 8%;
+            width: 80px;
+            height: 80px;
+            animation: float-rotate 8s ease-in-out infinite;
+        }
+
+        .shapla-2 {
+            top: 20%;
+            right: 10%;
+            width: 50px;
+            height: 50px;
+            animation: float-rotate 10s ease-in-out infinite reverse;
+        }
+
+        .shapla-3 {
+            bottom: 35%;
             left: 5%;
-            width: 60px;
-            height: 60px;
-            background: var(--secondary);
-            opacity: 0.25;
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .decoration-2 {
-            top: 25%;
-            right: 8%;
             width: 40px;
             height: 40px;
-            background: var(--accent);
-            opacity: 0.2;
-            border-radius: 8px;
-            transform: rotate(45deg);
-            animation: float 8s ease-in-out infinite reverse;
+            animation: float-rotate 6s ease-in-out infinite;
         }
 
-        .decoration-3 {
-            bottom: 40%;
-            left: 10%;
-            width: 20px;
-            height: 20px;
-            background: var(--secondary);
-            opacity: 0.3;
-            border-radius: 4px;
-            animation: float 5s ease-in-out infinite;
-        }
-
-        @keyframes float {
+        @keyframes float-rotate {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
         }
 
         /* Footer */
         .footer {
             background: var(--white);
-            border-top: 1px solid var(--background-alt);
+            border-top: 3px solid var(--secondary);
             padding: 1.5rem;
             text-align: center;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '✦  ✦  ✦';
+            position: absolute;
+            top: -0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            padding: 0 1rem;
+            color: var(--secondary);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
         }
 
         .footer-text {
@@ -359,32 +465,75 @@
             .notify-button {
                 width: 100%;
             }
+
+            .shapla-1, .shapla-2 {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="kantha-pattern"></div>
+    <div class="alpona-border"></div>
+
     <header class="header">
         <div class="header-content">
             <a href="/" class="logo">
-                <div class="logo-icon">🔔</div>
+                <div class="logo-icon">
+                    <!-- Shapla (Water Lily) - National Flower of Bangladesh -->
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="50" cy="50" rx="12" ry="30" fill="#D4A84B" transform="rotate(0 50 50)"/>
+                        <ellipse cx="50" cy="50" rx="12" ry="30" fill="#D4A84B" transform="rotate(45 50 50)"/>
+                        <ellipse cx="50" cy="50" rx="12" ry="30" fill="#D4A84B" transform="rotate(90 50 50)"/>
+                        <ellipse cx="50" cy="50" rx="12" ry="30" fill="#D4A84B" transform="rotate(135 50 50)"/>
+                        <circle cx="50" cy="50" r="10" fill="#FFFFFF"/>
+                        <circle cx="50" cy="50" r="6" fill="#D4A84B"/>
+                    </svg>
+                </div>
                 <span class="logo-text">Mone Rakhbo <span class="logo-bengali">মনে রাখবো</span></span>
             </a>
         </div>
     </header>
 
     <main class="hero">
-        <div class="decoration decoration-1"></div>
-        <div class="decoration decoration-2"></div>
-        <div class="decoration decoration-3"></div>
+        <!-- Shapla decorations -->
+        <div class="shapla shapla-1">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="50" rx="12" ry="30" fill="#D4A84B" transform="rotate(0 50 50)"/>
+                <ellipse cx="50" cy="50" rx="12" ry="30" fill="#D4A84B" transform="rotate(45 50 50)"/>
+                <ellipse cx="50" cy="50" rx="12" ry="30" fill="#D4A84B" transform="rotate(90 50 50)"/>
+                <ellipse cx="50" cy="50" rx="12" ry="30" fill="#D4A84B" transform="rotate(135 50 50)"/>
+                <circle cx="50" cy="50" r="10" fill="#FAF8F5"/>
+                <circle cx="50" cy="50" r="6" fill="#D4A84B"/>
+            </svg>
+        </div>
+        <div class="shapla shapla-2">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="50" rx="12" ry="30" fill="#FFFFFF" transform="rotate(0 50 50)"/>
+                <ellipse cx="50" cy="50" rx="12" ry="30" fill="#FFFFFF" transform="rotate(45 50 50)"/>
+                <ellipse cx="50" cy="50" rx="12" ry="30" fill="#FFFFFF" transform="rotate(90 50 50)"/>
+                <ellipse cx="50" cy="50" rx="12" ry="30" fill="#FFFFFF" transform="rotate(135 50 50)"/>
+                <circle cx="50" cy="50" r="10" fill="#9B2948"/>
+                <circle cx="50" cy="50" r="6" fill="#FFFFFF"/>
+            </svg>
+        </div>
+        <div class="shapla shapla-3">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="50" rx="12" ry="30" fill="#2D5A3D" transform="rotate(0 50 50)"/>
+                <ellipse cx="50" cy="50" rx="12" ry="30" fill="#2D5A3D" transform="rotate(45 50 50)"/>
+                <ellipse cx="50" cy="50" rx="12" ry="30" fill="#2D5A3D" transform="rotate(90 50 50)"/>
+                <ellipse cx="50" cy="50" rx="12" ry="30" fill="#2D5A3D" transform="rotate(135 50 50)"/>
+                <circle cx="50" cy="50" r="10" fill="#FAF8F5"/>
+                <circle cx="50" cy="50" r="6" fill="#2D5A3D"/>
+            </svg>
+        </div>
 
         <div class="hero-content">
-            <div class="hero-badge">
-                <span class="hero-badge-dot"></span>
-                Coming Soon
-            </div>
+            <div class="hero-badge">Coming Soon</div>
 
             <h1 class="hero-title">
-                Never Forget What Matters <span class="hero-title-bengali">মনে রাখবো</span>
+                Never Forget What Matters
+                <span class="hero-title-bengali">মনে রাখবো — যা গুরুত্বপূর্ণ</span>
             </h1>
 
             <p class="hero-subtitle">
@@ -392,7 +541,7 @@
             </p>
 
             <div class="hero-card">
-                <h2>Be the first to know when we launch</h2>
+                <h2>Be the first to know</h2>
 
                 <ul class="features-list">
                     <li>
@@ -405,7 +554,7 @@
                     </li>
                     <li>
                         <span class="feature-icon">🇧🇩</span>
-                        <span class="feature-text"><strong>Made for Bangladesh</strong> — Bangla support, local payments</span>
+                        <span class="feature-text"><strong>Made for Bangladesh</strong> — Bangla support, bKash payments</span>
                     </li>
                 </ul>
 
@@ -419,14 +568,14 @@
                     >
                     <button type="submit" class="notify-button">Notify Me</button>
                 </form>
-                <p class="form-note">No spam, just a single email when we launch.</p>
+                <p class="form-note">No spam, just one email when we launch.</p>
             </div>
         </div>
     </main>
 
     <footer class="footer">
         <p class="footer-text">
-            &copy; 2026 Mone Rakhbo. Made with ❤️ for Bangladesh.
+            &copy; 2026 Mone Rakhbo. Made with ❤️ in Bangladesh.
         </p>
     </footer>
 
@@ -437,12 +586,10 @@
             const email = form.querySelector('input[type="email"]').value;
             const button = form.querySelector('button');
 
-            // Simple feedback (replace with actual API call later)
-            button.textContent = 'Thank you!';
+            button.textContent = 'ধন্যবাদ!';
             button.disabled = true;
-            button.style.background = '#C4694D';
+            button.style.background = 'linear-gradient(135deg, #2D5A3D 0%, #1E3D2A 100%)';
 
-            // Reset after 3 seconds
             setTimeout(() => {
                 button.textContent = 'Notify Me';
                 button.disabled = false;
