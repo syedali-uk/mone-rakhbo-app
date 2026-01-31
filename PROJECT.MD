@@ -120,6 +120,54 @@ Mone Rakhবো allows users to schedule reminders or messages in advance. On th
 - No heavy downloads
 - Easy for non-technical users
 
+### 4.5 Branding & Visual Identity
+
+**Theme:** Pohela Boishakh (Bengali New Year) - festive, warm, culturally Bangladeshi
+
+**Colour Palette:**
+
+| Name | Hex | Usage |
+|------|-----|-------|
+| Red | `#D32F2F` | Primary accent, buttons, highlights |
+| Red Dark | `#B71C1C` | Button hover, emphasis |
+| Red Light | `#EF5350` | Subtle accents |
+| Gold | `#D4A84B` | Secondary accent, logo, decorative |
+| Gold Light | `#F0D78C` | Highlights, badges |
+| Gold Dark | `#B8923A` | Shadows, depth |
+| Cream | `#FFF8F0` | Background |
+| White | `#FFFFFF` | Cards, content areas |
+| Text Dark | `#2D2D2D` | Primary text |
+| Text Muted | `#666666` | Secondary text |
+| Border | `#F5E6E6` | Dividers, borders |
+
+**Logo:**
+
+- Gold bell with red accents (loop, clapper, sound waves)
+- Symbolises reminders and notifications
+- Files: `assets/logo-bell.svg`, `assets/favicon.svg`
+
+**Typography:**
+
+- Primary font: Hind Siliguri (supports Bengali + Latin)
+- Weights: 400 (body), 500 (medium), 600 (semibold), 700 (bold)
+- Source: Google Fonts
+
+**Visual Elements:**
+
+- Alpona-style corner decorations (traditional Bengali floor art patterns)
+- Floating festive elements with subtle animation
+- Red top band with gold dotted pattern
+- Gradient borders (red → gold → red)
+- Rounded corners (12-16px)
+
+**SVG Guidelines (Cross-browser):**
+
+- Always include `xmlns="http://www.w3.org/2000/svg"`
+- Decorative SVGs: add `role="presentation" aria-hidden="true" focusable="false"`
+- Logo/meaningful SVGs: add `role="img" aria-label="description"` and `<title>` element
+- Use inline SVGs for critical UI elements (no external requests)
+- Keep SVGs simple for mobile performance
+
 ---
 
 ## 5. Authentication & Security

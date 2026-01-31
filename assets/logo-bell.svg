@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Mone Rakhbo - Bell Logo
+  Gold bell with red accents
+  Usage: Logo mark for Mone Rakhbo brand
+-->
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mone Rakhbo bell logo">
+    <title>Mone Rakhbo</title>
+    <!-- Bell body - Gold -->
+    <path d="M50 12 C50 12 30 12 25 35 C20 58 18 70 18 70 L82 70 C82 70 80 58 75 35 C70 12 50 12 50 12" fill="#D4A84B"/>
+    <!-- Bell rim - Dark gold -->
+    <ellipse cx="50" cy="72" rx="34" ry="8" fill="#B8923A"/>
+    <!-- Bell top loop - Red with gold center -->
+    <circle cx="50" cy="8" r="6" fill="#D32F2F"/>
+    <circle cx="50" cy="8" r="3" fill="#D4A84B"/>
+    <!-- Bell clapper - Red -->
+    <circle cx="50" cy="82" r="6" fill="#D32F2F"/>
+    <!-- Highlight - Light gold -->
+    <ellipse cx="38" cy="40" rx="6" ry="12" fill="#F0D78C" opacity="0.5"/>
+    <!-- Sound waves - Red -->
+    <path d="M88 45 Q95 50 88 55" stroke="#D32F2F" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M12 45 Q5 50 12 55" stroke="#D32F2F" stroke-width="3" stroke-linecap="round" fill="none"/>
+</svg>
